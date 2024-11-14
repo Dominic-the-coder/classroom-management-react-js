@@ -11,8 +11,14 @@ function StudentsList(props) {
     >
       <div className="card-body">
         <h3 className="card-title mb-3">Students</h3>
-        {list.map((student) => {
-          return <Student num={student.id} name={student.name} />;
+        {list.map((student, index) => {
+          // method 1
+          // return <Student num={index + 1} name={student.name} />;
+          // method 2
+          // const { name } = student;
+          // return <Student num={index + 1} name={name} />;
+          // method 3
+          return <Student key={student.id} num={index + 1} {...student} />;
         })}
       </div>
     </div>
